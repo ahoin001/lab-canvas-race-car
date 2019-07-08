@@ -4,6 +4,8 @@ window.onload = function () {
   };
 
   function startGame() {
+    
+    /*****    draw grey road      *****/ 
 
     // // reference canvas
     let myCanvas = document.querySelector('#canvas');
@@ -27,18 +29,33 @@ window.onload = function () {
     // draw in rect with this size
     myContext.fillRect(100, 0, 400, 900);
 
+    /*****    draw white columns on road      *****/ 
+    
+    // make pen white
+    myContext.fillStyle = "white";
 
-    /*****    draw white lines on road      *****/ 
+    // draw in columns on sides of road
+    myContext.fillRect(120, 0, 15, 900);
+    myContext.fillRect(466, 0, 15, 900);
+
+
+    /*****    draw white dash lines on road      *****/ 
     
     // make pen white
     myContext.fillStyle = "white";
 
     // draw in rect with this size
-    myContext.fillRect(300, 10, 10, 40);
-    myContext.fillRect(300, 70, 10, 40);
+    myContext.fillRect(300, 10, 10, 50);
+    // myContext.fillRect(300, 90, 10, 50);
 
-    // did math to get numbers for this to work
-    let whiteLinesSpaceY = 10;
+    // start at first created white dash, and keep drawing white dashes
+    //spaced 80 apart until we reach the end of canvas 
+    // (rough number to determine end for design reasons)
+    for(whiteLinesSpaceY = 10; whiteLinesSpaceY < 1100; whiteLinesSpaceY += 80)
+    {
+      //draw new dashed white line
+      myContext.fillRect(300, whiteLinesSpaceY, 10, 50);
+    }
     
 
   }

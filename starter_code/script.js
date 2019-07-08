@@ -1,11 +1,14 @@
+// when page loads, asssign function to start button, that on click calls the start game() function
 window.onload = function () {
   document.getElementById("start-button").onclick = function () {
+    
     startGame();
+
   };
 
+  
+  
   function startGame() {
-
-    /*****    draw grey road      *****/
 
     // // reference canvas
     let myCanvas = document.querySelector('#canvas');
@@ -59,8 +62,6 @@ window.onload = function () {
     console.log('We finished drawing white lines');
     /*****    draw image on board      *****/
 
-    // problem here
-
     // // make an instance of image class
     const carImage = new Image();
     console.log('new image object made');
@@ -74,22 +75,18 @@ window.onload = function () {
     let carX = 260;
     let carY = 700;
 
-    // fireballImg.onload = () => {
-    //   ctx.drawImage(fireballImg, fireballX, fireballY, 70, 70);
-    // };
-    
-    // // places images on given coordinates and set height and width to 150
-    myContext.drawImage(carImage, carX, carY, 90, 100);
+    // // places images on given coordinates and set height and width to 70
+    carImage.onload = () => {
+      myContext.drawImage(carImage, carX, carY, 70, 70);
+    };
+
     console.log('car drawn');
-
-
-
 
     //****** MOVEMENT KEYS **********/
     // read keyboard input using event object
-   
     document.onkeydown = function (event) {
       // console.log(event);
+      console.log("Arrow press detected!");
 
       switch (event.keyCode) {
         case 37: // left
@@ -120,3 +117,7 @@ window.onload = function () {
 
 
 };
+
+function drawBackground() {
+
+}

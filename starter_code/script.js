@@ -2,9 +2,7 @@
 window.onload = function () {
 
   document.getElementById("start-button").onclick = function () {
-
     startGame();
-
   };
 
   // reference canvas
@@ -15,30 +13,38 @@ window.onload = function () {
 
   function startGame() {
 
+    // draws green background and road
     drawBackground();
 
-    /*****    draw image on board      *****/
+    /*******************************     
+      
+      * Draw car image
+ 
+     ******************************/
+     // make an instance of image class
+     const carImage = new Image();
+     console.log('new image object made');
+ 
+     // make our image instance hold image of car we want to use
+     carImage.src = "images/car.png";
+     console.log(`car image created`);
+     console.log(carImage);
+ 
+     // create starting positions for superman (used later)
+     carX = 260;
+     carY = 700;
+ 
+     // places images on given coordinates and set height and width to 70
+     // why what does this do
+     carImage.onload = () => {
+       myContext.drawImage(carImage, carX, carY, 70, 70);
+     };
+ 
+     console.log('car drawn');
+    // draws car image on road
 
-    // // make an instance of image class
-    const carImage = new Image();
-    console.log('new image object made');
-
-    // // navigate to this file as you were in html file, .src is the image reference to make this var an image
-    carImage.src = "images/car.png";
-    console.log(`car image created`);
-    console.log(carImage);
-
-    // // create starting positions for superman (used later)
-    let carX = 260;
-    let carY = 700;
-
-    // // places images on given coordinates and set height and width to 70
-    carImage.onload = () => {
-      myContext.drawImage(carImage, carX, carY, 70, 70);
-    };
-
-    console.log('car drawn');
-
+    // drawCar(260,700);
+    
     //****** MOVEMENT KEYS **********/
     // read keyboard input using event object
     document.onkeydown = function (event) {
@@ -133,6 +139,11 @@ window.onload = function () {
     console.log('We finished drawing white lines');
     console.log('Background complete');
 
+  }
+
+  function drawCar() {
+
+   
   }
 
 };

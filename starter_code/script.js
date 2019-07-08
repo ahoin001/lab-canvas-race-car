@@ -56,26 +56,67 @@ window.onload = function () {
       myContext.fillRect(300, whiteLinesSpaceY, 10, 50);
     }
 
-
+    console.log('We finished drawing white lines');
     /*****    draw image on board      *****/
 
-    // make an instance of image class
-    const carImage = new Image();
+    // problem here
 
-    // navigate to this file as you were in html file, .src is the image reference to make this var an image
+    // // make an instance of image class
+    const carImage = new Image();
+    console.log('new image object made');
+
+    // // navigate to this file as you were in html file, .src is the image reference to make this var an image
     carImage.src = "images/car.png";
+    console.log(`car image created`);
     console.log(carImage);
 
-    // create starting positions for superman (used later)
+    // // create starting positions for superman (used later)
     let carX = 260;
     let carY = 700;
 
-    // places images on given coordinates and set height and width to 150
+    // fireballImg.onload = () => {
+    //   ctx.drawImage(fireballImg, fireballX, fireballY, 70, 70);
+    // };
+    
+    // // places images on given coordinates and set height and width to 150
     myContext.drawImage(carImage, carX, carY, 90, 100);
+    console.log('car drawn');
+
+
+
+
+    //****** MOVEMENT KEYS **********/
+    // read keyboard input using event object
+   
+    document.onkeydown = function (event) {
+      // console.log(event);
+
+      switch (event.keyCode) {
+        case 37: // left
+          carX -= 10;
+          break;
+
+        case 38: //down
+          carY -= 10;
+          break;
+
+        case 39: // right
+          carX += 10;
+          break;
+
+        case 40: // up
+          carY += 10;
+          break;
+
+        default:
+          console.log("I'm not sure what you're doing!");
+      }
+    };
+
+
 
 
   }
 
+
 };
-
-

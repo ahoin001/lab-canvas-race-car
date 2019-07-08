@@ -4,8 +4,8 @@ window.onload = function () {
   };
 
   function startGame() {
-    
-    /*****    draw grey road      *****/ 
+
+    /*****    draw grey road      *****/
 
     // // reference canvas
     let myCanvas = document.querySelector('#canvas');
@@ -13,7 +13,7 @@ window.onload = function () {
     // // prepare 2d context 
     let myContext = myCanvas.getContext('2d');
 
-    /*****    draw green background      *****/ 
+    /*****    draw green background      *****/
 
     // make pen green
     myContext.fillStyle = "green";
@@ -21,16 +21,16 @@ window.onload = function () {
     // draw in rect with this size (x,y,width,height)
     myContext.fillRect(0, 0, 1000, 900);
 
-    /*****    draw grey road      *****/ 
-    
+    /*****    draw grey road      *****/
+
     // make pen grey
     myContext.fillStyle = "rgb(128,128,128)";
 
     // draw in rect with this size
     myContext.fillRect(100, 0, 400, 900);
 
-    /*****    draw white columns on road      *****/ 
-    
+    /*****    draw white columns on road      *****/
+
     // make pen white
     myContext.fillStyle = "white";
 
@@ -39,8 +39,8 @@ window.onload = function () {
     myContext.fillRect(466, 0, 15, 900);
 
 
-    /*****    draw white dash lines on road      *****/ 
-    
+    /*****    draw white dash lines on road      *****/
+
     // make pen white
     myContext.fillStyle = "white";
 
@@ -51,12 +51,28 @@ window.onload = function () {
     // start at first created white dash, and keep drawing white dashes
     //spaced 80 apart until we reach the end of canvas 
     // (rough number to determine end for design reasons)
-    for(whiteLinesSpaceY = 10; whiteLinesSpaceY < 1100; whiteLinesSpaceY += 80)
-    {
+    for (whiteLinesSpaceY = 10; whiteLinesSpaceY < 1100; whiteLinesSpaceY += 80) {
       //draw new dashed white line
       myContext.fillRect(300, whiteLinesSpaceY, 10, 50);
     }
-    
+
+
+    /*****    draw image on board      *****/
+
+    // make an instance of image class
+    const carImage = new Image();
+
+    // navigate to this file as you were in html file, .src is the image reference to make this var an image
+    carImage.src = "images/car.png";
+    console.log(carImage);
+
+    // create starting positions for superman (used later)
+    let carX = 260;
+    let carY = 700;
+
+    // places images on given coordinates and set height and width to 150
+    myContext.drawImage(carImage, carX, carY, 90, 100);
+
 
   }
 
